@@ -1,8 +1,10 @@
 //Project: tasklist
-import UI from "./UI.js";
-import Task from "./Task.js";
+import UI from "./ui.js";
+import Task from "./task.js";
 
 const ui = new UI();
+
+ui.showAllTasks();
 
 document.querySelector(".AddTaskBtn").addEventListener("click", (e) => {
   const taskTitle = document.querySelector("#newtaskID").value;
@@ -18,6 +20,11 @@ document.querySelector(".AddTaskBtn").addEventListener("click", (e) => {
 
 document.querySelector(".task-list").addEventListener("click", (e) => {
   console.log(e.target.className);
+
+  if(e.target.className.includes('task__op_edit'))
+  {
+    ui.editTask(e);
+  }
   if (e.target.className.includes("task__op_delete")) {
     console.log("delete button pressed");
     ui.deleteTask(e);
