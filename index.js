@@ -34,5 +34,19 @@ document.querySelector(".task-list").addEventListener("click", (e) => {
     console.log("check box pressed");
   }
 });
+
+
+document.querySelector('.EditTaskBtn').addEventListener('click',(e)=>{
+    ui.UpdateTask(e);
+});
+
+document.querySelector('.CancelTaskBtn').addEventListener('click',(e)=>{
+  ui.CancelTask(e);
+})
+
 // task (ID,Title)
 //LS
+
+
+// This project also can be converted to es6 class from prototype method. 
+document.querySelector('.EditTaskBtn')

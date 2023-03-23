@@ -10,6 +10,12 @@ LS.prototype.fetchTask = function () {
     tasks = [];
   }
  */
+
+  /**
+   * class LS{
+   * storetask,deletetask, all function will be here 
+   * }
+   */
   tasks = (tasks) ? JSON.parse(tasks):[];
 
   return tasks;
@@ -44,6 +50,20 @@ LS.prototype.completeTask= function(id){
   tasks[index].isCompleted = !tasks[index].isCompleted;
   
   
+  localStorage.setItem('tasks',JSON.stringify(tasks));
+};
+
+LS.prototype.findTask = function(id)
+{
+  let tasks = this.fetchTask();
+  return tasks.find((task)=>task.id===id);
+}
+
+LS.prototype.UpdateTask = function(id,title){
+
+  let tasks = this.fetchTask();
+  let index=tasks.findIndex((task)=>task.id===id);
+  tasks[index].title = title;
   localStorage.setItem('tasks',JSON.stringify(tasks));
 };
 export default LS;
